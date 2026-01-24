@@ -1,0 +1,17 @@
+April & May Sign Up's
+
+You have been asked to get a list of all the sign up IDs with transaction start dates in either April or May.
+Since a sign up ID can be used for multiple transactions only output the unique ID.
+Your output should contain a list of non duplicated sign-up IDs.
+
+
+solution :
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+transactions.head()
+transactions['transaction_start_date']=pd.to_datetime(transactions['transaction_start_date'])
+result = transactions[transactions['transaction_start_date'].dt.month.isin([4, 5])]
+result[['signup_id']].drop_duplicates()
